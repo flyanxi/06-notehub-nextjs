@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "modern-normalize";
+import "./globals.css";
+import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+
+export const metadata: Metadata = {
+  title: "NoteHub",
+  description: "Simple and efficient application for managing personal notes",
+};
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
+  return (
+    <html lang="en">
+      <body>
+        <TanStackProvider>
+          <Header />
+          {children}
+          <Footer />
+        </TanStackProvider>
+      </body>
+    </html>
+  );
+}
